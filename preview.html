@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stradbroke Island Booking</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #38bdf8, #0ea5e9);
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    .box {
+      background: white;
+      color: black;
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    #confirmation {
+      display: none;
+      margin-top: 20px;
+      background: #dcfce7;
+      color: #166534;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Stradbroke Island Tickets</h1>
+  <p>Plan your trip to paradise 🌴</p>
+</header>
+
+<div class="box">
+  <h2>Book Your Trip</h2>
+
+  <input type="text" placeholder="Your Name" id="name">
+
+  <input type="date" id="date">
+
+  <select id="people">
+    <option>1 Passenger</option>
+    <option>2 Passengers</option>
+    <option>3 Passengers</option>
+    <option>4+ Passengers</option>
+  </select>
+
+  <select id="ticket">
+    <option>Passenger Ferry</option>
+    <option>Vehicle Ferry</option>
+  </select>
+
+  <button onclick="book()">Book Ticket</button>
+
+  <div id="confirmation"></div>
+</div>
+
+<footer>
+  <p>*This is a school project website. Not real bookings.</p>
+</footer>
+
+<script>
+  function book() {
+    const name = document.getElementById("name").value;
+    const date = document.getElementById("date").value;
+
+    if (name === "" || date === "") {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    const confirmation = document.getElementById("confirmation");
+    confirmation.style.display = "block";
+    confirmation.innerHTML = 
+      "✅ Booking Confirmed!<br><br>" +
+      "Name: " + name + "<br>" +
+      "Date: " + date + "<br><br>" +
+      "Enjoy your trip to Stradbroke Island!";
+  }
+</script>
+
+</body>
+</html>
