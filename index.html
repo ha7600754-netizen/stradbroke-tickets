@@ -2,127 +2,122 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stradbroke Island Tickets</title>
+  <title>Stradbroke Island Booking</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #333;
+      background: linear-gradient(to bottom, #38bdf8, #0ea5e9);
+      color: white;
+      text-align: center;
     }
 
     header {
-      background: linear-gradient(135deg, #0077ff, #00c2ff);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
+      padding: 30px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 40px;
+    h1 {
+      font-size: 2.5em;
     }
 
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-    .container {
-      max-width: 1000px;
+    .box {
+      background: white;
+      color: black;
+      max-width: 500px;
       margin: auto;
       padding: 20px;
+      border-radius: 15px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .card h2 {
-      margin-top: 0;
-    }
-
-    .price {
-      font-size: 24px;
-      color: #0077ff;
+    input, select, button {
+      width: 100%;
+      padding: 10px;
       margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
     }
 
     button {
-      background: #0077ff;
+      background: #22c55e;
       color: white;
+      font-weight: bold;
       border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
     }
 
     button:hover {
-      background: #005fcc;
+      background: #16a34a;
+    }
+
+    #confirmation {
+      display: none;
+      margin-top: 20px;
+      background: #dcfce7;
+      color: #166534;
+      padding: 15px;
+      border-radius: 10px;
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #777;
+      margin-top: 30px;
+      font-size: 0.8em;
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <h1>Stradbroke Island Tickets</h1>
-    <p>Book your ferry tickets quickly and easily</p>
-  </header>
+<header>
+  <h1>Stradbroke Island Tickets</h1>
+  <p>Plan your trip to paradise 🌴</p>
+</header>
 
-  <div class="container">
+<div class="box">
+  <h2>Book Your Trip</h2>
 
-    <div class="cards">
+  <input type="text" placeholder="Your Name" id="name">
 
-      <div class="card">
-        <h2>Adult Ticket</h2>
-        <div class="price">$25</div>
-        <p>One-way ferry ticket for adults</p>
-        <button>Book Now</button>
-      </div>
+  <input type="date" id="date">
 
-      <div class="card">
-        <h2>Child Ticket</h2>
-        <div class="price">$15</div>
-        <p>For children aged 5–15</p>
-        <button>Book Now</button>
-      </div>
+  <select id="people">
+    <option>1 Passenger</option>
+    <option>2 Passengers</option>
+    <option>3 Passengers</option>
+    <option>4+ Passengers</option>
+  </select>
 
-      <div class="card">
-        <h2>Family Pass</h2>
-        <div class="price">$60</div>
-        <p>2 adults + 2 children</p>
-        <button>Book Now</button>
-      </div>
+  <select id="ticket">
+    <option>Passenger Ferry</option>
+    <option>Vehicle Ferry</option>
+  </select>
 
-    </div>
+  <button onclick="book()">Book Ticket</button>
 
-  </div>
+  <div id="confirmation"></div>
+</div>
 
-  <footer>
-    © 2026 Stradbroke Tickets (School Project)
-  </footer>
+<footer>
+  
+</footer>
+
+<script>
+  function book() {
+    const name = document.getElementById("name").value;
+    const date = document.getElementById("date").value;
+
+    if (name === "" || date === "") {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    const confirmation = document.getElementById("confirmation");
+    confirmation.style.display = "block";
+    confirmation.innerHTML = 
+      "✅ Booking Confirmed!<br><br>" +
+      "Name: " + name + "<br>" +
+      "Date: " + date + "<br><br>" +
+      "Enjoy your trip to Stradbroke Island!";
+  }
+</script>
 
 </body>
 </html>
